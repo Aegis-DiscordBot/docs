@@ -1,137 +1,55 @@
-<div align="center">
+# Mintlify Starter Kit
 
-<img src="https://avatars.githubusercontent.com/u/67172145?s=280&v=4" alt="Aegis Logo" width="120" height="120" style="border-radius: 50%;"/>
+Use the starter kit to get your docs deployed and ready to customize.
 
-# Aegis — Docs
+Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
 
-**Official documentation for the Aegis Discord bot. 📚**
+- Guide pages
+- Navigation
+- Customizations
+- API reference pages
+- Use of popular components
 
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![Discord](https://img.shields.io/badge/Support_Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/3SzpJEXUcV)
-[![Docs](https://img.shields.io/badge/Read_the_Docs-000000?style=for-the-badge&logo=gitbook&logoColor=white)](https://aegisdocs.vercel.com)
+**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
 
-</div>
+## AI-assisted writing
 
----
-
-## 📖 About
-
-This repository contains the official documentation for **Aegis** — covering everything from getting started to advanced configuration, command references, and self-hosting guides.
-
----
-
-## 📚 Documentation Contents
-
-- **Getting Started** — How to invite Aegis and set it up in your server
-- **Commands** — Full reference for all prefix and slash commands
-- **Moderation** — How to use ban, kick, warn, mute & timeout
-- **Anti-Nuke** — Configuring Aegis's anti-nuke protection
-- **Automod** — Setting up automatic moderation rules
-- **Logging** — Configuring log channels and events
-- **Music** — Using the music system
-- **YouTube Notifications** — Setting up YouTube alerts
-- **Dashboard** — Using the web dashboard
-- **Self-Hosting** — How to host your own instance of Aegis
-- **FAQ** — Frequently asked questions
-
----
-
-## 🛠️ Built With
-
-| Tool | Purpose |
-|---|---|
-| [Mintlify](https://mintlify.com) / [Docusaurus](https://docusaurus.io) | Documentation framework |
-| Markdown / MDX | Content format |
-| TypeScript | Config & tooling |
-
-> The exact documentation framework will be decided during setup.
-
----
-
-## 🚀 Running Locally
-
-1. **Clone the repository**
+Set up your AI coding tool to work with Mintlify:
 
 ```bash
-git clone https://github.com/your-org/docs.git
-cd docs
+npx skills add https://mintlify.com/docs
 ```
 
-2. **Install dependencies**
+This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
 
-```bash
-bun install
-```
+See the [AI tools guides](/ai-tools) for tool-specific setup.
 
-3. **Start the dev server**
+## Development
 
-```bash
-bun run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view the docs locally.
-
----
-
-## 📁 Project Structure
+Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
 
 ```
-docs/
-├── getting-started/
-│   ├── introduction.md
-│   ├── invite.md
-│   └── setup.md
-├── commands/
-│   ├── moderation.md
-│   ├── music.md
-│   ├── utility.md
-│   └── antinuke.md
-├── guides/
-│   ├── automod.md
-│   ├── logging.md
-│   ├── antinuke.md
-│   ├── youtube-notifications.md
-│   └── dashboard.md
-├── self-hosting/
-│   ├── prerequisites.md
-│   ├── installation.md
-│   └── configuration.md
-├── faq.md
-└── README.md
+npm i -g mint
 ```
 
----
+Run the following command at the root of your documentation, where your `docs.json` is located:
 
-## ✍️ Contributing to the Docs
+```
+mint dev
+```
 
-Found a typo, outdated info, or something missing? Contributions are very welcome!
+View your local preview at `http://localhost:3000`.
 
-1. Fork the repository
-2. Create your branch (`git checkout -b fix/typo-in-commands`)
-3. Make your changes
-4. Commit (`git commit -m 'Fix typo in commands page'`)
-5. Push (`git push origin fix/typo-in-commands`)
-6. Open a Pull Request
+## Publishing changes
 
-Even small fixes like correcting typos are appreciated! 🙏
+Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
 
----
+## Need help?
 
-## 📜 Legal
+### Troubleshooting
 
-- [Terms of Service](https://https://gist.github.com/AlexxDevvz/941b3e36ceef8e0d198103f2a3a4b9f1)
-- [Privacy Policy](https://gist.github.com/AlexxDevvz/31f2487e97426e6f60dce0f862660fd5)
+- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
+- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-
-*Built with ❤️ by the Aegis team*
-
-</div>
+### Resources
+- [Mintlify documentation](https://mintlify.com/docs)

@@ -1,0 +1,82 @@
+---
+title: "Overview"
+description: "Smart automatic moderation to keep your server clean without lifting a finger."
+icon: "robot"
+---
+
+## What is Automod?
+
+Aegis's Automod system automatically monitors and filters messages in your server based on rules you configure. It works silently in the background, keeping your server clean without requiring manual intervention from moderators.
+
+<Info>
+  Automod actions are separate from manual moderation actions and are logged independently in your automod log channel.
+</Info>
+
+## What Can Automod Do?
+
+<CardGroup cols={2}>
+  <Card title="Spam Detection" icon="messages">
+    Detects and deletes repeated messages and excessive message frequency.
+  </Card>
+  <Card title="Bad Word Filter" icon="filter">
+    Automatically deletes messages containing banned words or phrases.
+  </Card>
+  <Card title="Link Filter" icon="link">
+    Blocks unauthorized links and URLs from being posted.
+  </Card>
+  <Card title="Invite Filter" icon="envelope">
+    Prevents members from posting Discord invite links.
+  </Card>
+  <Card title="Caps Filter" icon="a">
+    Filters messages with excessive use of capital letters.
+  </Card>
+  <Card title="Emoji Filter" icon="face-smile">
+    Limits excessive emoji usage in messages.
+  </Card>
+  <Card title="Mention Spam" icon="at">
+    Detects and removes messages with mass mentions.
+  </Card>
+  <Card title="Raid Detection" icon="person-running">
+    Detects sudden influxes of new members joining and triggers lockdown.
+  </Card>
+</CardGroup>
+
+## How It Works
+
+When a message violates an Automod rule, Aegis will:
+
+1. **Delete** the offending message instantly
+2. **Warn** the member (optional, configurable)
+3. **Log** the incident to your automod log channel
+4. **DM** the member explaining why their message was removed (optional)
+
+## Ignored Roles & Channels
+
+You can configure roles and channels that are completely ignored by Automod.
+$automod ignore role @Moderator
+
+$automod ignore channel #mod-chat
+
+$automod unignore role @Moderator
+
+$automod unignore channel #mod-chat
+
+<Info>
+  Members with the **Administrator** permission are always ignored by Automod.
+</Info>
+
+## Quick Setup
+$automod setup
+
+This will walk you through enabling Automod and configuring the basic rules for your server.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Configuration" icon="gear" href="/automod/configuration">
+    Learn how to configure each Automod rule in detail.
+  </Card>
+  <Card title="Logging" icon="clipboard-list" href="/logging/overview">
+    Set up a dedicated automod log channel.
+  </Card>
+</CardGroup>

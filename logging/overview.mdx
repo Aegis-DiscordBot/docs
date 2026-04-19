@@ -1,0 +1,74 @@
+---
+title: "Overview"
+description: "Detailed logs for every action taken in your server."
+icon: "clipboard-list"
+---
+
+## What is Logging?
+
+Aegis's logging system keeps a detailed record of everything that happens in your server. From moderation actions to message edits, Aegis logs it all so you never miss a thing.
+
+## What Does Aegis Log?
+
+<CardGroup cols={2}>
+  <Card title="Moderation Actions" icon="hammer">
+    Bans, kicks, warns, mutes, and timeouts issued by moderators.
+  </Card>
+  <Card title="Message Events" icon="message">
+    Message edits, deletions, and bulk deletions.
+  </Card>
+  <Card title="Member Events" icon="user">
+    Members joining, leaving, and updating their profiles.
+  </Card>
+  <Card title="Channel Events" icon="hashtag">
+    Channels being created, deleted, or updated.
+  </Card>
+  <Card title="Role Events" icon="shield">
+    Roles being created, deleted, assigned, or removed.
+  </Card>
+  <Card title="Voice Events" icon="microphone">
+    Members joining, leaving, or moving between voice channels.
+  </Card>
+  <Card title="Automod Actions" icon="robot">
+    Messages deleted or members punished by Automod.
+  </Card>
+  <Card title="Anti-Nuke Actions" icon="shield-halved">
+    Actions taken by the Anti-Nuke system.
+  </Card>
+</CardGroup>
+
+## Log Channels
+
+Aegis supports multiple dedicated log channels so you can separate different types of logs.
+
+| Log Channel | Purpose |
+|---|---|
+| Mod Log | Moderation actions (ban, kick, warn, mute, timeout) |
+| Message Log | Message edits and deletions |
+| Member Log | Member join and leave events |
+| Server Log | Channel, role, and server setting changes |
+| Voice Log | Voice channel activity |
+| Automod Log | Automod actions |
+
+## Quick Setup
+
+```bash
+$logging setup
+```
+
+This will walk you through setting up your log channels interactively.
+
+<Info>
+  You can use the same channel for all logs or separate them into individual channels — it's entirely up to you.
+</Info>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Configuration" icon="gear" href="/logging/configuration">
+    Learn how to configure each log channel in detail.
+  </Card>
+  <Card title="Automod" icon="robot" href="/automod/overview">
+    Set up Automod to work alongside logging.
+  </Card>
+</CardGroup>

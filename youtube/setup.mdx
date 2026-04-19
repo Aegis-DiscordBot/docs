@@ -1,0 +1,153 @@
+---
+title: "Setup"
+description: "Set up YouTube notifications for your server step by step."
+icon: "gear"
+---
+
+## Overview
+
+Setting up YouTube notifications in Aegis is simple. You can manage everything from slash commands or the dashboard.
+
+## Step 1 — Add a YouTube Channel
+
+```bash
+$youtube add <channel URL or ID>
+```
+
+**Examples:**
+
+```bash
+$youtube add https://www.youtube.com/@MrBeast
+$youtube add UCX6OQ3DkcsbYNE6H8uQQuVA
+```
+
+<Info>
+  You can use either the full YouTube channel URL or the channel ID. The channel ID can be found in the channel's About page.
+</Info>
+
+## Step 2 — Set a Notification Channel
+
+Set which Discord channel the notifications will be sent to:
+
+```bash
+$youtube setchannel <youtube channel ID> #discord-channel
+```
+
+**Example:**
+
+```bash
+$youtube setchannel UCX6OQ3DkcsbYNE6H8uQQuVA #youtube-alerts
+```
+
+## Step 3 — Set a Notification Message (Optional)
+
+Customize the message sent when a new video, short, or livestream is detected.
+
+```bash
+$youtube setmessage <youtube channel ID> <message>
+```
+
+**Available Variables:**
+
+| Variable | Description |
+|---|---|
+| `{youtuber}` | The YouTuber's channel name |
+| `{title}` | The title of the video or stream |
+| `{url}` | The URL of the video or stream |
+| `{type}` | The type of content (Video, Short, Livestream) |
+
+**Example:**
+
+```bash
+$youtube setmessage UCX6OQ3DkcsbYNE6H8uQQuVA {youtuber} just posted a new {type}! Check it out: {url}
+```
+
+## Step 4 — Set a Role Ping (Optional)
+
+Ping a specific role when a notification is sent:
+
+```bash
+$youtube setrole <youtube channel ID> @role
+```
+
+**Example:**
+
+```bash
+$youtube setrole UCX6OQ3DkcsbYNE6H8uQQuVA @YouTube Notifications
+```
+
+## Managing Notifications
+
+### List All Tracked Channels
+
+```bash
+$youtube list
+```
+
+### Remove a YouTube Channel
+
+```bash
+$youtube remove <youtube channel ID>
+```
+
+### Enable or Disable Notifications
+
+```bash
+$youtube enable <youtube channel ID>
+$youtube disable <youtube channel ID>
+```
+
+### Configure Notification Types
+
+You can choose which types of content trigger notifications:
+
+```bash
+$youtube types <youtube channel ID> videos shorts livestreams
+```
+
+**Examples:**
+
+```bash
+$youtube types UCX6OQ3DkcsbYNE6H8uQQuVA videos livestreams
+$youtube types UCX6OQ3DkcsbYNE6H8uQQuVA videos
+$youtube types UCX6OQ3DkcsbYNE6H8uQQuVA shorts
+```
+
+<Info>
+  By default all three notification types are enabled — videos, shorts, and livestreams.
+</Info>
+
+## Limits
+
+| Limit | Value |
+|---|---|
+| Max YouTubers per server | 25 |
+| Notification check interval | Every 5 minutes |
+
+<Warning>
+  Adding too many YouTubers that post very frequently may result in your notification channel being flooded. We recommend using a dedicated channel for YouTube notifications.
+</Warning>
+
+## Dashboard Configuration
+
+All YouTube notification settings can be managed visually from the Aegis dashboard.
+
+<Card
+  title="Open Dashboard"
+  icon="browser"
+  href="https://your-dashboard-url.com"
+  horizontal
+>
+  Add and manage YouTube notifications from one place.
+</Card>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="youtube" href="/youtube/overview">
+    Learn about the YouTube notifications system.
+  </Card>
+  <Card title="Dashboard" icon="browser" href="/dashboard/overview">
+    Manage all Aegis settings from the dashboard.
+  </Card>
+</CardGroup>

@@ -1,0 +1,68 @@
+---
+title: "Overview"
+description: "Get notified when your favourite YouTubers post a video, short, or go live."
+icon: "youtube"
+---
+
+## What are YouTube Notifications?
+
+Aegis's YouTube notification system automatically alerts your server when a YouTuber you follow posts a new video, short, or goes live. Perfect for content creator communities!
+
+## Features
+
+<CardGroup cols={2}>
+  <Card title="Video Alerts" icon="video">
+    Get notified when a YouTuber posts a new video.
+  </Card>
+  <Card title="Shorts Alerts" icon="mobile">
+    Get notified when a YouTuber posts a new short.
+  </Card>
+  <Card title="Livestream Alerts" icon="circle-dot">
+    Get notified when a YouTuber goes live.
+  </Card>
+  <Card title="Custom Messages" icon="message">
+    Customize the notification message for each YouTuber.
+  </Card>
+  <Card title="Role Pings" icon="bell">
+    Ping a specific role when a notification is sent.
+  </Card>
+  <Card title="Multiple Channels" icon="hashtag">
+    Track multiple YouTubers across different channels.
+  </Card>
+</CardGroup>
+
+## How It Works
+
+Aegis uses the YouTube Data API v3 to poll for new content from your configured YouTubers. When new content is detected, Aegis sends a notification to your configured channel.
+
+<Info>
+  Notifications are checked every 5 minutes. There may be a slight delay between a video being posted and the notification being sent.
+</Info>
+
+## Notification Types
+
+| Type | Trigger |
+|---|---|
+| Video | A new video is uploaded |
+| Short | A new short is uploaded |
+| Livestream | A livestream starts |
+| Livestream End | A livestream ends |
+
+## Quick Setup
+
+```bash
+$youtube add <channel URL or ID>
+```
+
+Aegis will ask you to configure the notification channel, message, and role ping.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Setup" icon="gear" href="/youtube/setup">
+    Learn how to set up YouTube notifications for your server.
+  </Card>
+  <Card title="Dashboard" icon="browser" href="/dashboard/overview">
+    Manage YouTube notifications from the Aegis dashboard.
+  </Card>
+</CardGroup>

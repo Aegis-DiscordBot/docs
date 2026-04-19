@@ -1,0 +1,255 @@
+---
+title: "Prerequisites"
+description: "Everything you need before self hosting Aegis."
+icon: "server"
+---
+
+## Overview
+
+Self hosting Aegis gives you full control over your own instance of the bot and dashboard. This guide will walk you through everything you need to get started.
+
+<Warning>
+  Self hosting Aegis requires a basic understanding of the command line, Node.js, and PostgreSQL. If you're not comfortable with these, we recommend using the hosted version of Aegis instead.
+</Warning>
+
+## System Requirements
+
+| Requirement | Minimum | Recommended |
+|---|---|---|
+| OS | Windows 10, Ubuntu 20.04, Debian 11, Fedora 36, macOS 12+ | Ubuntu 22.04 LTS |
+| RAM | 512MB | 1GB+ |
+| CPU | 1 vCPU | 2 vCPU+ |
+| Storage | 5GB | 10GB+ |
+| Bun | 1.0+ | Latest |
+| PostgreSQL | 15+ | 16+ |
+
+## Required Accounts & Keys
+
+Before starting, make sure you have the following:
+
+### Discord Application
+
+1. Go to the [Discord Developer Portal](https://discord.com/developers/applications)
+2. Click **New Application** and give it a name
+3. Go to the **Bot** tab and click **Add Bot**
+4. Copy your **Bot Token** — you'll need this later
+5. Under **OAuth2**, add your dashboard URL as a redirect URI
+6. Copy your **Client ID** and **Client Secret**
+
+<Warning>
+  Never share your bot token with anyone. If it gets leaked, reset it immediately from the Developer Portal.
+</Warning>
+
+### YouTube Data API v3
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project
+3. Enable the **YouTube Data API v3**
+4. Go to **Credentials** and create an **API Key**
+5. Copy your API key — you'll need this later
+
+<Info>
+  The YouTube Data API v3 has a daily quota of 10,000 units. For most servers this is more than enough.
+</Info>
+
+## Installing Required Software
+
+### Bun
+
+<Tabs>
+  <Tab title="Windows">
+    Run the following in **PowerShell**:
+
+    ```powershell
+    powershell -c "irm bun.sh/install.ps1 | iex"
+    ```
+
+    Verify the installation:
+
+    ```powershell
+    bun --version
+    ```
+
+    <Info>
+      On Windows, Bun requires Windows 10 version 1809 or later. We recommend using [Windows Terminal](https://aka.ms/terminal) for the best experience.
+    </Info>
+  </Tab>
+  <Tab title="Linux (Fedora)">
+    ```bash
+    curl -fsSL https://bun.sh/install | bash
+    ```
+
+    Verify the installation:
+
+    ```bash
+    bun --version
+    ```
+  </Tab>
+  <Tab title="Linux (Ubuntu/Debian)">
+    ```bash
+    curl -fsSL https://bun.sh/install | bash
+    ```
+
+    Verify the installation:
+
+    ```bash
+    bun --version
+    ```
+  </Tab>
+  <Tab title="macOS">
+    ```bash
+    curl -fsSL https://bun.sh/install | bash
+    ```
+
+    Or with Homebrew:
+
+    ```bash
+    brew install oven-sh/bun/bun
+    ```
+
+    Verify the installation:
+
+    ```bash
+    bun --version
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+### PostgreSQL
+
+<Tabs>
+  <Tab title="Windows">
+    1. Download the installer from [postgresql.org/download/windows](https://www.postgresql.org/download/windows/)
+    2. Run the installer and follow the setup wizard
+    3. Remember the password you set for the `postgres` user
+    4. Make sure **pgAdmin** and **Command Line Tools** are selected during installation
+
+    Verify by opening **SQL Shell (psql)** from the Start Menu.
+  </Tab>
+  <Tab title="Linux (Fedora)">
+    ```bash
+    sudo dnf install postgresql postgresql-server
+    sudo postgresql-setup --initdb
+    sudo systemctl start postgresql
+    sudo systemctl enable postgresql
+    ```
+
+    Verify the installation:
+
+    ```bash
+    psql --version
+    ```
+  </Tab>
+  <Tab title="Linux (Ubuntu/Debian)">
+    ```bash
+    sudo apt install postgresql postgresql-contrib
+    sudo systemctl start postgresql
+    sudo systemctl enable postgresql
+    ```
+
+    Verify the installation:
+
+    ```bash
+    psql --version
+    ```
+  </Tab>
+  <Tab title="macOS">
+    ```bash
+    brew install postgresql@16
+    brew services start postgresql@16
+    ```
+
+    Verify the installation:
+
+    ```bash
+    psql --version
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+### Git
+
+<Tabs>
+  <Tab title="Windows">
+    1. Download the installer from [git-scm.com](https://git-scm.com/download/win)
+    2. Run the installer and follow the setup wizard
+    3. Make sure **Git Bash** is selected during installation
+
+    Verify the installation:
+
+    ```powershell
+    git --version
+    ```
+  </Tab>
+  <Tab title="Linux (Fedora)">
+    ```bash
+    sudo dnf install git
+    ```
+  </Tab>
+  <Tab title="Linux (Ubuntu/Debian)">
+    ```bash
+    sudo apt install git
+    ```
+  </Tab>
+  <Tab title="macOS">
+    Git comes pre-installed on macOS. If not, install it with Homebrew:
+
+    ```bash
+    brew install git
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+## Setting Up PostgreSQL
+
+<Tabs>
+  <Tab title="Windows">
+    Open **SQL Shell (psql)** from the Start Menu, log in with your `postgres` password, then run:
+
+    ```sql
+    CREATE DATABASE aegis;
+    CREATE USER aegisuser WITH PASSWORD 'your_password';
+    GRANT ALL PRIVILEGES ON DATABASE aegis TO aegisuser;
+    \q
+    ```
+  </Tab>
+  <Tab title="Linux & macOS">
+    ```bash
+    sudo -u postgres psql
+    ```
+
+    Then run:
+
+    ```sql
+    CREATE DATABASE aegis;
+    CREATE USER aegisuser WITH PASSWORD 'your_password';
+    GRANT ALL PRIVILEGES ON DATABASE aegis TO aegisuser;
+    \q
+    ```
+  </Tab>
+</Tabs>
+
+Your database URL will be:
+
+```
+postgresql://aegisuser:your_password@localhost:5432/aegis
+```
+
+## Next Steps
+
+Once you have everything set up, move on to the installation guide.
+
+<Card
+  title="Installation"
+  icon="download"
+  href="/self-hosting/installation"
+  horizontal
+>
+  Install and run Aegis on your own server.
+</Card>

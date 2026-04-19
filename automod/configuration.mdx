@@ -1,0 +1,183 @@
+---
+title: "Configuration"
+description: "Configure each Automod rule to match your server's needs."
+icon: "gear"
+---
+
+## Overview
+
+Every Automod rule in Aegis is fully configurable. You can enable or disable individual rules, set thresholds, and customize punishments from either the dashboard or slash commands.
+
+## Enabling & Disabling
+
+```bash
+$automod enable
+$automod disable
+```
+
+You can also enable or disable individual rules:
+
+```bash
+$automod enable spam
+$automod disable links
+$automod enable caps
+```
+
+<Info>
+  Automod is disabled by default. You must enable it manually after inviting Aegis.
+</Info>
+
+## Spam Detection
+
+Detects members sending too many messages in a short period of time.
+
+| Setting | Default | Description |
+|---|---|---|
+| `spam_limit` | 5 | Max messages allowed within the time window |
+| `spam_window` | 5s | Time window for spam checks |
+| `spam_action` | `warn` | Action to take when spam is detected |
+
+```bash
+$automod spam limit 5
+$automod spam window 5s
+$automod spam action mute 10m
+```
+
+## Bad Word Filter
+
+Automatically deletes messages containing banned words or phrases.
+
+```bash
+$automod badwords add <word>
+$automod badwords remove <word>
+$automod badwords list
+```
+
+### Wildcards
+
+You can use wildcards to match variations of a word:
+
+| Wildcard | Example | Matches |
+|---|---|---|
+| `*` | `bad*` | `bad`, `badly`, `badword` |
+| `?` | `ba?` | `bad`, `ban`, `bat` |
+
+<Warning>
+  Bad word filters are case insensitive by default.
+</Warning>
+
+## Link Filter
+
+Blocks unauthorized links and URLs from being posted.
+
+```bash
+$automod links enable
+$automod links disable
+$automod links whitelist add https://example.com
+$automod links whitelist remove https://example.com
+$automod links whitelist list
+```
+
+## Invite Filter
+
+Prevents members from posting Discord invite links.
+
+```bash
+$automod invites enable
+$automod invites disable
+$automod invites whitelist add discord.gg/your-invite
+```
+
+<Info>
+  Your own server's invite link is always whitelisted automatically.
+</Info>
+
+## Caps Filter
+
+Filters messages with excessive use of capital letters.
+
+| Setting | Default | Description |
+|---|---|---|
+| `caps_percent` | 70% | Percentage of caps before filtering |
+| `caps_min_length` | 8 | Minimum message length to check |
+
+```bash
+$automod caps percent 70
+$automod caps minlength 8
+```
+
+## Emoji Filter
+
+Limits excessive emoji usage in messages.
+
+| Setting | Default | Description |
+|---|---|---|
+| `emoji_limit` | 10 | Max emojis allowed per message |
+
+```bash
+$automod emoji limit 10
+```
+
+## Mention Spam
+
+Detects and removes messages with mass mentions.
+
+| Setting | Default | Description |
+|---|---|---|
+| `mention_limit` | 5 | Max mentions allowed per message |
+
+```bash
+$automod mentions limit 5
+```
+
+## Raid Detection
+
+Detects sudden influxes of new members joining and triggers automatic lockdown.
+
+| Setting | Default | Description |
+|---|---|---|
+| `raid_joins` | 10 | Number of joins to trigger raid detection |
+| `raid_window` | 10s | Time window for join checks |
+| `raid_action` | `lockdown` | Action taken when raid is detected |
+
+```bash
+$automod raid joins 10
+$automod raid window 10s
+$automod raid action lockdown
+```
+
+## Punishment Actions
+
+Each Automod rule can have its own punishment action:
+
+| Action | Description |
+|---|---|
+| `delete` | Delete the message only |
+| `warn` | Delete and warn the member |
+| `mute` | Delete and mute the member |
+| `kick` | Delete and kick the member |
+| `ban` | Delete and ban the member |
+
+## Dashboard Configuration
+
+All Automod settings can be managed visually from the Aegis dashboard.
+
+<Card
+  title="Open Dashboard"
+  icon="browser"
+  href="https://your-dashboard-url.com"
+  horizontal
+>
+  Configure all Automod rules from one place without any commands.
+</Card>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="robot" href="/automod/overview">
+    Learn what Automod can do for your server.
+  </Card>
+  <Card title="Logging" icon="clipboard-list" href="/logging/overview">
+    Track all Automod actions in your log channel.
+  </Card>
+</CardGroup>

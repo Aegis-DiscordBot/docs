@@ -1,0 +1,81 @@
+---
+title: "Timeout"
+description: "Temporarily restrict a member using Discord's native timeout feature."
+icon: "clock"
+---
+
+## Overview
+
+The `timeout` command uses Discord's native timeout feature to temporarily restrict a member. Timed out members cannot send messages, react, speak in voice channels, or interact with the server in any way.
+
+## Usage
+$timeout @user [duration] [reason]
+
+Or with a slash command:
+
+/timeout user: @user duration: [duration] reason: [reason]
+
+## Options
+
+| Option | Required | Description |
+|---|---|---|
+| `user` | ✅ | The member to timeout |
+| `duration` | ✅ | How long to timeout (e.g. `1h`, `30m`, `1d`) |
+| `reason` | ❌ | The reason for the timeout |
+
+## Duration Format
+
+| Format | Example | Result |
+|---|---|---|
+| Minutes | `30m` | 30 minutes |
+| Hours | `1h` | 1 hour |
+| Days | `1d` | 1 day |
+| Maximum | `28d` | 28 days (Discord's limit) |
+
+## Examples
+$timeout @alexxxzdevelops 1h Being disruptive
+
+$timeout @alexxxzdevelops 30m
+
+/timeout user:@alexxxzdevelops duration:1h reason:Being disruptive
+
+## Behavior
+
+- The timed out member will receive a DM notification with the duration and reason
+- The action will be logged in your mod log channel if configured
+- The timeout is recorded in Aegis's database and visible in the dashboard
+- Discord automatically removes the timeout when the duration expires
+- Timing out a member does not require a Muted role — it uses Discord's built-in system
+
+## Removing a Timeout
+
+To manually remove a timeout before it expires:
+$untimeout @user
+
+<Info>
+  Unlike the [Mute](/moderation/mute) command, Timeout is handled entirely by Discord — meaning it works even if Aegis goes offline.
+</Info>
+
+<Warning>
+  You cannot timeout members with a higher or equal role than yours. Discord's maximum timeout duration is 28 days.
+</Warning>
+
+## Timeout vs Mute
+
+| | Timeout | Mute |
+|---|---|---|
+| Handled by | Discord | Aegis |
+| Max duration | 28 days | Unlimited |
+| Works if bot is offline | ✅ | ❌ |
+| Requires Muted role | ❌ | ✅ |
+
+## Related Commands
+
+<CardGroup cols={2}>
+  <Card title="Mute" icon="microphone-slash" href="/moderation/mute">
+    Silence a member using Aegis's mute system.
+  </Card>
+  <Card title="Ban" icon="ban" href="/moderation/ban">
+    Permanently remove a member from your server.
+  </Card>
+</CardGroup>

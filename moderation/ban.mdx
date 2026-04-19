@@ -1,0 +1,52 @@
+---
+title: "Ban"
+description: "Permanently remove a member from your server."
+icon: "ban"
+---
+
+## Overview
+
+The `ban` command permanently removes a member from your server and prevents them from rejoining unless unbanned.
+
+## Usage
+$ban @user [reason]
+
+Or with a slash command:
+
+/ban user: @user reason: [reason]
+
+## Options
+
+| Option | Required | Description |
+|---|---|---|
+| `user` | ✅ | The member to ban |
+| `reason` | ❌ | The reason for the ban |
+| `delete_messages` | ❌ | How many days of messages to delete (0-7) |
+
+## Examples
+$ban @alexxxzdevelops Spamming in general
+
+$ban @alexxxzdevelops
+
+/ban user: @alexxxzdevelops reason:Spamming in general
+
+## Behavior
+
+- The banned member will receive a DM notification with the reason (if they share a server with Aegis)
+- The action will be logged in your mod log channel if configured
+- The ban is recorded in Aegis's database and visible in the dashboard
+
+<Warning>
+  You cannot ban members with a higher or equal role than yours.
+</Warning>
+
+## Related Commands
+
+<CardGroup cols={2}>
+  <Card title="Unban" icon="check" href="/moderation/ban">
+    Unban a previously banned member.
+  </Card>
+  <Card title="Kick" icon="right-from-bracket" href="/moderation/kick">
+    Temporarily remove a member from your server.
+  </Card>
+</CardGroup>

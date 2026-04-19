@@ -1,0 +1,98 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Aegis Docs",
+  "colors": {
+    "primary": "#5865F2",
+    "light": "#7983F5",
+    "dark": "#3C45C7"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["index", "quickstart"]
+          },
+          {
+            "group": "Moderation",
+            "pages": [
+              "moderation/ban",
+              "moderation/kick",
+              "moderation/warn",
+              "moderation/mute",
+              "moderation/timeout"
+            ]
+          },
+          {
+            "group": "Anti-Nuke",
+            "pages": ["antinuke/overview", "antinuke/configuration"]
+          },
+          {
+            "group": "Automod",
+            "pages": ["automod/overview", "automod/configuration"]
+          },
+          {
+            "group": "Logging",
+            "pages": ["logging/overview", "logging/configuration"]
+          },
+          {
+            "group": "Music",
+            "pages": ["music/overview", "music/commands"]
+          },
+          {
+            "group": "YouTube Notifications",
+            "pages": ["youtube/overview", "youtube/setup"]
+          },
+          {
+            "group": "Dashboard",
+            "pages": ["dashboard/overview"]
+          },
+          {
+            "group": "Self Hosting",
+            "pages": ["self-hosting/prerequisites", "self-hosting/installation"]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Support Server",
+          "href": "https://discord.gg/3SzpJEXUcV",
+          "icon": "discord"
+        },
+        {
+          "anchor": "GitHub",
+          "href": "https://github.com/Aegis-DiscordBot",
+          "icon": "github"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://discord.gg/3SzpJEXUcV"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Invite Aegis",
+      "href": "https://discord.com/oauth2/authorize?client_id=1495395864833949767"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/Aegis-DiscordBot"
+    }
+  }
+}

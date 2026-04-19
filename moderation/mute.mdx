@@ -1,0 +1,73 @@
+---
+title: "Mute"
+description: "Silence a member across all channels in your server."
+icon: "microphone-slash"
+---
+
+## Overview
+
+The `mute` command silences a member across all channels in your server. Muted members cannot send messages, react, or speak in voice channels.
+
+## Usage
+$mute @user [duration] [reason]
+
+Or with a slash command:
+
+/mute user: @user duration: [duration] reason: [reason]
+
+## Options
+
+| Option | Required | Description |
+|---|---|---|
+| `user` | ✅ | The member to mute |
+| `duration` | ❌ | How long to mute (e.g. `1h`, `30m`, `1d`) |
+| `reason` | ❌ | The reason for the mute |
+
+## Duration Format
+
+| Format | Example | Result |
+|---|---|---|
+| Minutes | `30m` | 30 minutes |
+| Hours | `1h` | 1 hour |
+| Days | `1d` | 1 day |
+| Permanent | *(leave blank)* | Until manually unmuted |
+
+## Examples
+$mute @alexxxzdevelops 1h Spamming
+
+$mute @alexxxzdevelops 30m
+
+$mute @alexxxzdevelops
+
+/mute user:@alexxxzdevelops duration:1h reason:Spamming
+
+## Behavior
+
+- The muted member will receive a DM notification with the duration and reason
+- The action will be logged in your mod log channel if configured
+- The mute is recorded in Aegis's database and visible in the dashboard
+- If a duration is set, Aegis will automatically unmute the member when it expires
+
+## Unmuting a Member
+
+To manually unmute a member before the duration expires:
+$unmute @user
+
+<Warning>
+  You cannot mute members with a higher or equal role than yours.
+</Warning>
+
+<Info>
+  For Discord's native timeout feature, see the [Timeout](/moderation/timeout) command instead.
+</Info>
+
+## Related Commands
+
+<CardGroup cols={2}>
+  <Card title="Timeout" icon="clock" href="/moderation/timeout">
+    Use Discord's native timeout feature.
+  </Card>
+  <Card title="Warn" icon="triangle-exclamation" href="/moderation/warn">
+    Issue a warning to a member.
+  </Card>
+</CardGroup>

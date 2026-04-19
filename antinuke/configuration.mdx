@@ -1,0 +1,112 @@
+---
+title: "Configuration"
+description: "Configure Anti-Nuke thresholds, actions, and whitelists for your server."
+icon: "gear"
+---
+
+## Overview
+
+Aegis's Anti-Nuke system is fully configurable. You can set custom thresholds, actions, and whitelists to match your server's needs from either the dashboard or slash commands.
+
+## Enabling & Disabling
+$antinuke enable
+
+$antinuke disable
+
+<Info>
+  Anti-Nuke is disabled by default. You must enable it manually after inviting Aegis.
+</Info>
+
+## Thresholds
+
+Thresholds define how many actions can occur within a time window before Anti-Nuke triggers.
+
+| Setting | Default | Description |
+|---|---|---|
+| `ban_threshold` | 3 | Max bans allowed within the time window |
+| `kick_threshold` | 3 | Max kicks allowed within the time window |
+| `channel_delete_threshold` | 3 | Max channel deletions allowed |
+| `channel_create_threshold` | 5 | Max channel creations allowed |
+| `role_delete_threshold` | 3 | Max role deletions allowed |
+| `time_window` | 10s | Time window for threshold checks |
+
+### Changing Thresholds
+$antinuke threshold ban 5
+
+$antinuke threshold kick 3
+
+$antinuke threshold channel_delete 2
+
+$antinuke threshold time_window 15s
+
+## Punishment Actions
+
+When a threshold is exceeded, Aegis can take the following actions against the offending member:
+
+| Action | Description |
+|---|---|
+| `role_strip` | Remove all roles from the offending member |
+| `kick` | Kick the offending member |
+| `ban` | Permanently ban the offending member |
+| `lockdown` | Lock all channels in the server |
+
+### Setting Punishment Actions
+$antinuke action ban
+
+$antinuke action kick
+
+$antinuke action role_strip
+
+## Lockdown Mode
+
+When lockdown is triggered, Aegis will:
+
+- Remove send message permissions from all channels
+- Notify the server owner and admins via DM
+- Post a lockdown notice in the log channel
+
+### Manually Triggering Lockdown
+$lockdown enable
+
+$lockdown disable
+
+<Warning>
+  Lockdown mode will restrict all members including admins. Make sure to disable it once the threat is resolved.
+</Warning>
+
+## Whitelist Management
+
+Whitelisted members and bots are completely ignored by the Anti-Nuke system.
+$antinuke whitelist add @user
+
+$antinuke whitelist remove @user
+
+$antinuke whitelist list
+
+<Info>
+  Always whitelist trusted bots like Aegis itself and other moderation bots to avoid false positives.
+</Info>
+
+## Dashboard Configuration
+
+All Anti-Nuke settings can also be managed visually from the Aegis dashboard.
+
+<Card
+  title="Open Dashboard"
+  icon="browser"
+  href="https://your-dashboard-url.com"
+  horizontal
+>
+  Configure Anti-Nuke settings from one place without any commands.
+</Card>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="shield" href="/antinuke/overview">
+    Learn what Anti-Nuke protects against.
+  </Card>
+  <Card title="Logging" icon="clipboard-list" href="/logging/overview">
+    Track all Anti-Nuke actions in your log channel.
+  </Card>
+</CardGroup>

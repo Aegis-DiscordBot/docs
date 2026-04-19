@@ -1,0 +1,56 @@
+---
+title: "Kick"
+description: "Remove a member from your server without a permanent ban."
+icon: "right-from-bracket"
+---
+
+## Overview
+
+The `kick` command removes a member from your server. Unlike a ban, kicked members can rejoin using a valid invite link.
+
+## Usage
+$kick @user [reason]
+
+Or with a slash command:
+
+/kick user: @user reason: [reason]
+
+## Options
+
+| Option | Required | Description |
+|---|---|---|
+| `user` | ✅ | The member to kick |
+| `reason` | ❌ | The reason for the kick |
+
+## Examples
+$kick @alexxxzdevelops Being disruptive in voice chat
+
+$kick @alexxxzdevelops
+
+/kick user:@alexxxzdevelops reason:Being disruptive in voice chat
+
+## Behavior
+
+- The kicked member will receive a DM notification with the reason (if they share a server with Aegis)
+- The action will be logged in your mod log channel if configured
+- The kick is recorded in Aegis's database and visible in the dashboard
+- The kicked member **can** rejoin the server with a valid invite
+
+<Warning>
+  You cannot kick members with a higher or equal role than yours.
+</Warning>
+
+<Info>
+  If you want to permanently remove a member, use the [Ban](/moderation/ban) command instead.
+</Info>
+
+## Related Commands
+
+<CardGroup cols={2}>
+  <Card title="Ban" icon="ban" href="/moderation/ban">
+    Permanently remove a member from your server.
+  </Card>
+  <Card title="Warn" icon="triangle-exclamation" href="/moderation/warn">
+    Issue a warning to a member.
+  </Card>
+</CardGroup>

@@ -1,0 +1,76 @@
+---
+title: "Warn"
+description: "Issue a warning to a member with automatic punishment thresholds."
+icon: "triangle-exclamation"
+---
+
+## Overview
+
+The `warn` command issues a formal warning to a member. Warnings are tracked in Aegis's database and can trigger automatic punishments when a member reaches a set threshold.
+
+## Usage
+$warn @user [reason]
+
+Or with a slash command:
+
+/warn user: @user reason: [reason]
+
+## Options
+
+| Option | Required | Description |
+|---|---|---|
+| `user` | ✅ | The member to warn |
+| `reason` | ❌ | The reason for the warning |
+
+## Examples
+$warn @alexxxzdevelops Sending inappropriate images
+
+$warn @alexxxzdevelops
+
+/warn user:@alexxxzdevelops reason:Sending inappropriate images
+
+## Behavior
+
+- The warned member will receive a DM notification with the reason
+- The warning is logged in your mod log channel if configured
+- All warnings are stored in Aegis's database and visible in the dashboard
+- When a member reaches the configured warning threshold, an automatic punishment is triggered
+
+## Warning Thresholds
+
+You can configure automatic punishments based on warning count in the dashboard.
+
+| Warnings | Default Action |
+|---|---|
+| 3 | Mute (1 hour) |
+| 5 | Kick |
+| 7 | Ban |
+
+<Info>
+  Warning thresholds are fully customizable per server from the dashboard.
+</Info>
+
+## Viewing Warnings
+
+To view a member's warnings use:
+$warnings @user
+
+## Clearing Warnings
+
+To clear a member's warnings use:
+$clearwarnings @user
+
+<Warning>
+  You cannot warn members with a higher or equal role than yours.
+</Warning>
+
+## Related Commands
+
+<CardGroup cols={2}>
+  <Card title="Mute" icon="microphone-slash" href="/moderation/mute">
+    Silence a member in all channels.
+  </Card>
+  <Card title="Kick" icon="right-from-bracket" href="/moderation/kick">
+    Remove a member from your server.
+  </Card>
+</CardGroup>

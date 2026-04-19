@@ -1,0 +1,149 @@
+---
+title: "Configuration"
+description: "Configure log channels and events for your server."
+icon: "gear"
+---
+
+## Overview
+
+Aegis's logging system is fully configurable. You can set dedicated channels for each log type, enable or disable specific events, and customize how logs are displayed.
+
+## Setting Log Channels
+
+### Mod Log
+
+```bash
+$logging modlog #channel
+```
+
+### Message Log
+
+```bash
+$logging messagelog #channel
+```
+
+### Member Log
+
+```bash
+$logging memberlog #channel
+```
+
+### Server Log
+
+```bash
+$logging serverlog #channel
+```
+
+### Voice Log
+
+```bash
+$logging voicelog #channel
+```
+
+### Automod Log
+
+```bash
+$logging automodlog #channel
+```
+
+<Info>
+  You can set all logs to the same channel or use separate channels for each type.
+</Info>
+
+## Enabling & Disabling Log Events
+
+You can enable or disable individual log events:
+
+```bash
+$logging enable message_delete
+$logging disable message_edit
+$logging enable member_join
+$logging disable voice_join
+```
+
+### Available Events
+
+| Event | Description |
+|---|---|
+| `message_delete` | Log deleted messages |
+| `message_edit` | Log edited messages |
+| `message_bulk_delete` | Log bulk message deletions |
+| `member_join` | Log members joining |
+| `member_leave` | Log members leaving |
+| `member_update` | Log member profile updates |
+| `role_create` | Log role creations |
+| `role_delete` | Log role deletions |
+| `role_update` | Log role updates |
+| `channel_create` | Log channel creations |
+| `channel_delete` | Log channel deletions |
+| `channel_update` | Log channel updates |
+| `voice_join` | Log voice channel joins |
+| `voice_leave` | Log voice channel leaves |
+| `voice_move` | Log voice channel moves |
+
+## Ignored Channels & Roles
+
+You can configure channels and roles to be ignored by the logging system.
+
+```bash
+$logging ignore channel #bot-commands
+$logging ignore role @Bots
+$logging unignore channel #bot-commands
+$logging unignore role @Bots
+```
+
+## Log Format
+
+Each log entry includes:
+
+- **Action type** — What happened
+- **User** — Who triggered the action
+- **Target** — Who or what was affected
+- **Reason** — Why the action was taken (if applicable)
+- **Timestamp** — When it happened
+- **Case ID** — A unique ID for moderation actions
+
+## Viewing Logs
+
+You can view moderation logs for a specific member directly in Discord:
+
+```bash
+$logs @user
+$logs @user --type ban
+$logs @user --limit 10
+```
+
+## Clearing Logs
+
+```bash
+$logs clear @user
+$logs clear @user --type warn
+```
+
+<Warning>
+  Clearing logs is permanent and cannot be undone.
+</Warning>
+
+## Dashboard Configuration
+
+All logging settings can be managed visually from the Aegis dashboard.
+
+<Card
+  title="Open Dashboard"
+  icon="browser"
+  href="https://your-dashboard-url.com"
+  horizontal
+>
+  Configure all log channels and events from one place.
+</Card>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="clipboard-list" href="/logging/overview">
+    Learn what Aegis can log for your server.
+  </Card>
+  <Card title="Automod" icon="robot" href="/automod/overview">
+    Set up Automod to work alongside logging.
+  </Card>
+</CardGroup>

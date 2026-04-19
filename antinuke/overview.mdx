@@ -1,0 +1,76 @@
+---
+title: "Overview"
+description: "Real-time protection against raids, mass bans, and permission abuse."
+icon: "shield"
+---
+
+## What is Anti-Nuke?
+
+Aegis's Anti-Nuke system is a real-time protection layer that monitors your server for suspicious activity and automatically takes action to prevent damage. Whether it's a rogue admin, a compromised account, or a bot raid — Aegis has your back.
+
+<Warning>
+  Anti-Nuke is a powerful system. Make sure you configure it carefully to avoid false positives on legitimate actions.
+</Warning>
+
+## What Does It Protect Against?
+
+<CardGroup cols={2}>
+  <Card title="Mass Ban" icon="ban">
+    Detects and stops mass banning of members in a short period of time.
+  </Card>
+  <Card title="Mass Kick" icon="right-from-bracket">
+    Detects and stops mass kicking of members in a short period of time.
+  </Card>
+  <Card title="Mass Channel Delete" icon="trash">
+    Detects and stops mass deletion of channels in your server.
+  </Card>
+  <Card title="Mass Channel Create" icon="plus">
+    Detects and stops mass creation of channels in your server.
+  </Card>
+  <Card title="Mass Role Delete" icon="trash">
+    Detects and stops mass deletion of roles in your server.
+  </Card>
+  <Card title="Permission Escalation" icon="lock-open">
+    Detects when a member or bot is granted dangerous permissions unexpectedly.
+  </Card>
+</CardGroup>
+
+## How It Works
+
+When Aegis detects suspicious activity, it will:
+
+1. **Immediately revoke** the offending member's roles
+2. **Lock down** the server if the threat is severe enough
+3. **Log** the incident to your designated log channel
+4. **Notify** server owners and admins via DM
+5. **Restore** any deleted channels or roles if possible
+
+## Whitelist
+
+Trusted admins and bots can be whitelisted so they are never flagged by the Anti-Nuke system.
+
+$antinuke whitelist add @user
+
+$antinuke whitelist remove @user
+
+$antinuke whitelist list
+
+<Info>
+  The server owner is always whitelisted and cannot be flagged by Anti-Nuke.
+</Info>
+
+## Quick Setup
+$antinuke setup
+
+This will walk you through enabling Anti-Nuke and configuring the basic thresholds for your server.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Configuration" icon="gear" href="/antinuke/configuration">
+    Learn how to configure Anti-Nuke thresholds and actions.
+  </Card>
+  <Card title="Logging" icon="clipboard-list" href="/logging/overview">
+    Set up logging to track all Anti-Nuke actions.
+  </Card>
+</CardGroup>

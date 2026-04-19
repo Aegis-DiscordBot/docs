@@ -1,0 +1,278 @@
+---
+title: "Commands"
+description: "All music commands and how to use them."
+icon: "terminal"
+---
+
+## Overview
+
+All music commands can be used with the `$` prefix or as slash commands. You must be in a voice channel to use music commands.
+
+## Playback Commands
+
+### Play
+
+Play a song by name or URL.
+
+```bash
+$play <song name or URL>
+```
+
+| Option | Required | Description |
+|---|---|---|
+| `song` | ✅ | Song name or URL to play |
+
+**Examples:**
+
+```bash
+$play Never Gonna Give You Up
+$play https://www.youtube.com/watch?v=dQw4w9WgXcQ
+$play https://open.spotify.com/track/...
+```
+
+---
+
+### Pause
+
+Pause the currently playing song.
+
+```bash
+$pause
+```
+
+---
+
+### Resume
+
+Resume the paused song.
+
+```bash
+$resume
+```
+
+---
+
+### Stop
+
+Stop the music and clear the queue.
+
+```bash
+$stop
+```
+
+---
+
+### Skip
+
+Skip the currently playing song.
+
+```bash
+$skip
+```
+
+---
+
+### Skip To
+
+Skip to a specific song in the queue.
+
+```bash
+$skipto <position>
+```
+
+**Example:**
+
+```bash
+$skipto 3
+```
+
+---
+
+### Seek
+
+Seek to a specific position in the current song.
+
+```bash
+$seek <time>
+```
+
+**Example:**
+
+```bash
+$seek 1:30
+```
+
+---
+
+### Replay
+
+Restart the currently playing song from the beginning.
+
+```bash
+$replay
+```
+
+---
+
+## Queue Commands
+
+### Queue
+
+View the current music queue.
+
+```bash
+$queue
+```
+
+---
+
+### Add
+
+Add a song to the queue.
+
+```bash
+$play <song>
+```
+
+<Info>
+  Using `$play` while a song is already playing will add it to the queue automatically.
+</Info>
+
+---
+
+### Remove
+
+Remove a song from the queue by its position.
+
+```bash
+$remove <position>
+```
+
+**Example:**
+
+```bash
+$remove 3
+```
+
+---
+
+### Shuffle
+
+Shuffle the current queue randomly.
+
+```bash
+$shuffle
+```
+
+---
+
+### Clear Queue
+
+Clear all songs from the queue.
+
+```bash
+$clearqueue
+```
+
+---
+
+### Move
+
+Move a song to a different position in the queue.
+
+```bash
+$move <from> <to>
+```
+
+**Example:**
+
+```bash
+$move 3 1
+```
+
+---
+
+## Playback Settings
+
+### Volume
+
+Adjust the playback volume (1-100).
+
+```bash
+$volume <1-100>
+```
+
+**Example:**
+
+```bash
+$volume 50
+```
+
+---
+
+### Loop
+
+Toggle loop mode for the current song or queue.
+
+```bash
+$loop song
+$loop queue
+$loop off
+```
+
+---
+
+### 24/7 Mode
+
+Keep Aegis in the voice channel even when no music is playing.
+
+```bash
+$247 enable
+$247 disable
+```
+
+---
+
+### Lyrics
+
+View lyrics for the currently playing song.
+
+```bash
+$lyrics
+```
+
+---
+
+### Now Playing
+
+View information about the currently playing song.
+
+```bash
+$nowplaying
+```
+
+---
+
+## DJ Role
+
+You can restrict music commands to members with a specific DJ role.
+
+```bash
+$music djrole @DJ
+$music djrole remove
+```
+
+<Info>
+  Server administrators and members with the **Manage Server** permission can always use music commands regardless of the DJ role.
+</Info>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="music" href="/music/overview">
+    Learn about the Aegis music system.
+  </Card>
+  <Card title="Dashboard" icon="browser" href="/dashboard/overview">
+    Manage music settings from the dashboard.
+  </Card>
+</CardGroup>
