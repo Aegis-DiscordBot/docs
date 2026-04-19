@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="your-aegis-logo-url-here" alt="Aegis Logo" width="120" height="120" style="border-radius: 50%;"/>
+<img src="https://avatars.githubusercontent.com/u/67172145?s=280&v=4" alt="Aegis Logo" width="120" height="120" style="border-radius: 50%;"/>
 
 # Aegis — Docs
 
